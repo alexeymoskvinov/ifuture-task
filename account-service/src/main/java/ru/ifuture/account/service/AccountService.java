@@ -3,10 +3,10 @@ package ru.ifuture.account.service;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.stereotype.Service;
-import ru.ifuture.account.dto.AccountDto;
 import ru.ifuture.account.mapper.AccountMapper;
 import ru.ifuture.account.model.Account;
 import ru.ifuture.account.repository.AccountRepository;
+import ru.ifuture.dto.AccountDto;
 
 import javax.persistence.EntityNotFoundException;
 

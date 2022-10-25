@@ -2,8 +2,8 @@ package ru.ifuture.account.controller;
 
 import lombok.RequiredArgsConstructor;
 import org.springframework.web.bind.annotation.*;
-import ru.ifuture.account.dto.AccountDto;
 import ru.ifuture.account.service.AccountService;
+import ru.ifuture.dto.AccountDto;
 
 import javax.validation.Valid;
 

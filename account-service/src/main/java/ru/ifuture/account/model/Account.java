@@ -18,7 +18,6 @@ public class Account {
      * id
      */
     @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Integer id;
 
     /**

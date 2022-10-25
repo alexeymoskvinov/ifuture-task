@@ -1,9 +1,10 @@
-package ru.ifuture.account.dto;
+package ru.ifuture.dto;
 
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
 import javax.validation.constraints.NotNull;
+
 
 @Data
 @NoArgsConstructor
@@ -11,7 +12,6 @@ public class AccountDto {
     /**
      * id
      */
-    @NotNull
     private Long id;
     /**
      * value at account

@@ -4,6 +4,15 @@ services:
 #  test-client:
 #
   account-service:
+    depends_on:
+      - postgres
+    container_name: account-service
+    build:
+      context: account-service
+      dockerfile: Dockerfile
+    image: account-service:latest
+    ports:
+      - "8080:8080"
 
   postgres:
     image: postgres:14
