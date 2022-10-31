@@ -1,4 +1,4 @@
-package ru.ifuture.dto;
+package ru.ifuture.test.client.dto;
 
 import com.fasterxml.jackson.annotation.JsonProperty;
 import lombok.Data;
