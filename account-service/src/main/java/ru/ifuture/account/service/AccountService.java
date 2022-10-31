@@ -13,15 +13,22 @@ import javax.persistence.EntityNotFoundException;
 @Service
 @RequiredArgsConstructor
 @Slf4j
-
 public class AccountService {
 
+    private final MetricService metricService;
     private final AccountRepository accountRepository;
     private final AccountMapper accountMapper;
 
     public AccountDto addAmount(AccountDto accountDto) {
-
-        return accountMapper.fromEntity(accountRepository.save(accountMapper.fromDto(accountDto)));
+        Account account;
+        if (accountRepository.existsById(accountDto.getId())) {
+            account = findById(accountDto.getId());
+            account.setValue(accountDto.getValue() + account.getValue());
+        } else {
+            account = accountMapper.fromDto(accountDto);
+        }
+        metricService.addCounterIncrement();
+        return accountMapper.fromEntity(accountRepository.save(account));
     }
 
     private Account findById(int id) {
@@ -34,6 +41,7 @@ public class AccountService {
     }
 
     public AccountDto getAmount(int id) {
+        metricService.getCounterIncrement();
         return accountMapper.fromEntity(findById(id));
     }
 
