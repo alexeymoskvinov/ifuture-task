@@ -1,7 +1,5 @@
-# Исследование AccountService'а 
+# Research AccountService
 ___
-
-A rock-paper-scissors game backend written on Java.
 
 Tech stack: Java 17, spring-boot, PostgreSQL, Docker, Grafana
 
@@ -13,8 +11,8 @@ Service for creating an account or changing the balance on an already created on
 
 The interface contains two requests:
 
-1)Add amount(int accountId, int value)
-http://localhost:8080/account
+1)Add amount(int accountId, int value)  /account
+
 Json Example:
 ```
 {
@@ -24,7 +22,7 @@ Json Example:
 ```
 
 2)Get amount
-http://localhost:8080/account/{id}
+/account/{id}
 
 
 ### - dto-lib
@@ -36,7 +34,7 @@ Service that stores shared DTO
 The service that is needed to create a load on the account-service
 
 The interface contain one request:
-Start test (rCount, wCount, idList) http://localhost:8081/test-client-start
+Start test (rCount, wCount, idList) /test-client-start
 - rCount - number of reading threads. Method getAmount(id) 
 - wCount - number of writing threads. Method addAmount(id,value)
 - idList - List of used id
@@ -59,7 +57,7 @@ Prerequisites: installed docker jdk 17+, maven, git
 ```
 cd <your project dir> 
 https://github.com/alexeymoskvinov/ifuture-task
-cd rock-paper-scissors
+cd ifuture-task
 ```
 ### To run with integration tests (started docker is needed)
 ```
