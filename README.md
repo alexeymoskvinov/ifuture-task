@@ -5,7 +5,37 @@ A rock-paper-scissors game backend written on Java.
 
 Tech stack: Java 17, spring-boot, PostgreSQL, Docker, Grafana
 
-## How to run the backend
+## Information about services
+
+### - account-service:
+
+Service for creating an account or changing the balance on an already created one, as well as for obtaining information about the account
+
+The interface contains two requests:
+
+1)Add amount(int accountId, int value)
+http://localhost:8080/account
+
+2)Get amount(int accountId)
+http://localhost:8080/account/{id}
+
+
+### - dto-lib
+
+Service that stores shared DTO
+
+### - test client
+
+The service that is needed to create a load on the account-service
+
+The interface contain one request:
+Start test (rCount, wCount, idList)
+- rCount - количество читателей вызывающих метод getAmount(id) 
+- wCount - количество читателей вызывающих метод addAmount(id,value)
+- idList - список или доапазон ключей которые будут использоваться для тестирования
+  Эти параметры можно задавать через командную строчку или конфигурационный файл.
+
+## How to run 
 
 ### Maven + Spring-Boot
 Prerequisites: installed docker jdk 17+, maven, git
