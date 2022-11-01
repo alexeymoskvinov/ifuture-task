@@ -15,8 +15,15 @@ The interface contains two requests:
 
 1)Add amount(int accountId, int value)
 http://localhost:8080/account
+Json Example:
+```
+{
+    "id": 3,
+    "value": 3 
+}
+```
 
-2)Get amount(int accountId)
+2)Get amount
 http://localhost:8080/account/{id}
 
 
@@ -29,11 +36,20 @@ Service that stores shared DTO
 The service that is needed to create a load on the account-service
 
 The interface contain one request:
-Start test (rCount, wCount, idList)
-- rCount - количество читателей вызывающих метод getAmount(id) 
-- wCount - количество читателей вызывающих метод addAmount(id,value)
-- idList - список или доапазон ключей которые будут использоваться для тестирования
-  Эти параметры можно задавать через командную строчку или конфигурационный файл.
+Start test (rCount, wCount, idList) http://localhost:8081/test-client-start
+- rCount - number of reading threads. Method getAmount(id) 
+- wCount - number of writing threads. Method addAmount(id,value)
+- idList - List of used id
+
+Json Example:
+```
+{
+    "rCount": 10,
+    "wCount": 10,
+    "idList":[1,2,3,4,5,6,7,8,9,10,11,12,13,14,15,16] 
+}
+```
+
 
 ## How to run 
 
