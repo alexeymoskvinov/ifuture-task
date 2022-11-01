@@ -1,7 +1,7 @@
 # Research AccountService
 ___
 
-Tech stack: Java 17, spring-boot, PostgreSQL, Docker, Grafana
+Tech stack: Java 17, spring-boot, PostgreSQL, Docker, Prometheus, Grafana
 
 ## Information about services
 
@@ -56,12 +56,12 @@ Prerequisites: installed docker jdk 17+, maven, git
 
 ```
 cd <your project dir> 
-https://github.com/alexeymoskvinov/ifuture-task
+git clone https://github.com/alexeymoskvinov/ifuture-task
 cd ifuture-task
 ```
 ### To run with integration tests (started docker is needed)
 ```
-mvn clean install -DskipTests
+mvn clean install
 docker-compose up
 ```
 

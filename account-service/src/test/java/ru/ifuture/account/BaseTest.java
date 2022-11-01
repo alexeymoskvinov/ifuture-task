@@ -7,6 +7,7 @@ import org.junit.jupiter.api.BeforeEach;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
 import org.springframework.test.annotation.DirtiesContext;
+import org.springframework.test.context.ActiveProfiles;
 import org.springframework.test.web.servlet.MockMvc;
 import org.springframework.test.web.servlet.setup.MockMvcBuilders;
 import org.springframework.web.context.WebApplicationContext;
@@ -18,6 +19,7 @@ import java.util.stream.Stream;
 
 @SpringBootTest
 @DirtiesContext
+@ActiveProfiles("test")
 public abstract class BaseTest {
     public static PostgreSQLContainer<?> postgresContainer = new PostgreSQLContainer<>("postgres:14.0");
     @Autowired
