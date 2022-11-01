@@ -8,7 +8,9 @@ import org.springframework.stereotype.Service;
 
 import javax.annotation.PostConstruct;
 
-
+/**
+ * metric service
+ */
 @Service
 public class MetricService {
 
@@ -19,6 +21,9 @@ public class MetricService {
     @Getter
     private Counter addCounter;
 
+    /**
+     * metric counter initialization
+     */
     @PostConstruct
     public void counterInit() {
         getCounter =
@@ -31,10 +36,16 @@ public class MetricService {
                         .register(meterRegistry);
     }
 
+    /**
+     * get counter increment
+     */
     public void getCounterIncrement(){
         getCounter.increment();
     }
 
+    /**
+     * add counter increment
+     */
     public void addCounterIncrement(){
         addCounter.increment();
     }
