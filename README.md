@@ -64,7 +64,7 @@ cd rock-paper-scissors
 ### To run with integration tests (started docker is needed)
 ```
 mvn clean install -DskipTests
-docker compose up
+docker-compose up
 ```
 
 ### To run grafana to collect statistics
