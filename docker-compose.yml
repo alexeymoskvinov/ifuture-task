@@ -1,0 +1,54 @@
+version: '3.9'
+
+services:
+  test-client:
+    container_name: test-client
+    build:
+      context: test-client
+      dockerfile: Dockerfile
+    image: test-client:latest
+    ports:
+      - "8081:8081"
+
+  account-service:
+    depends_on:
+      - postgres
+    container_name: account-service
+    build:
+      context: account-service
+      dockerfile: Dockerfile
+    image: account-service:latest
+    ports:
+      - "8080:8080"
+
+  postgres:
+    image: postgres:14
+    environment:
+      POSTGRES_DB: postgres
+      POSTGRES_USER: admin
+      POSTGRES_PASSWORD: password
+    ports:
+      - "5433:5432"
+    volumes:
+      - db-data:/var/lib/postgresql/data
+    restart: always
+
+  prometheus:
+    image: prom/prometheus
+    ports:
+      - "9090:9090"
+    volumes:
+      - ./data/prometheus/config:/etc/prometheus/
+    command:
+      - '--config.file=/etc/prometheus/prometheus.yaml'
+
+  grafana:
+    image: grafana/grafana
+    ports:
+      - "3000:3000"
+    environment:
+      - GF_SECURITY_ADMIN_USER=admin
+      - GF_SECURITY_ADMIN_PASSWORD=admin
+
+volumes:
+  db-data:
